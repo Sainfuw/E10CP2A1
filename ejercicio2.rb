@@ -1,22 +1,16 @@
 module Formula
   def perimetro
-    l = lados
-    "El perimetro del #{self.class.name} es: #{l.inject(:+) * 2}"
+    l = arr
+    "El perimetro del #{self.class.name} es: #{(l[0] + l[1]) * 2}"
   end
 
   def area
-    l = lados
+    l = arr
     "El area de #{self.class.name} es: #{l[0] * l[1]}"
   end
 
-  def lados
-    if self.class.name == 'Rectangulo'
-      puts "#Medidas: #{@base}, #{@altura}"
-      [@base, @altura]
-    else
-      puts "Medida: #{@lado}"
-      [@lado, @lado]
-    end
+  def arr
+    self.class.name == 'Rectangulo' ? [@base, @altura] : [@lado, @lado]
   end
 end
 
@@ -26,6 +20,10 @@ class Rectangulo
     @base = base
     @altura = altura
   end
+
+  def lados
+    puts "Lados: #{@base}, #{@altura}"
+  end
 end
 
 class Cuadrado
@@ -33,12 +31,18 @@ class Cuadrado
   def initialize(lado)
     @lado = lado
   end
+
+  def lados
+    puts "Lado: #{@lado}"
+  end
 end
 
 cuadrado = Cuadrado.new(5)
+cuadrado.lados
 puts cuadrado.perimetro
 puts cuadrado.area
-
+puts "-------------------------------------"
 rectangulo = Rectangulo.new(3, 5)
+rectangulo.lados
 puts rectangulo.perimetro
 puts rectangulo.area
