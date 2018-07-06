@@ -41,7 +41,7 @@ cuadrado = Cuadrado.new(5)
 cuadrado.lados
 puts cuadrado.perimetro
 puts cuadrado.area
-puts "-------------------------------------"
+puts '-------------------------------------'
 rectangulo = Rectangulo.new(3, 5)
 rectangulo.lados
 puts rectangulo.perimetro
